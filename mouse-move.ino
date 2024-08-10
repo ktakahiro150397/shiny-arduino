@@ -6,6 +6,9 @@ const int initializeValue = 9999;
 
 void moveMouse(int x, int y)
 {
+    moveMouseForX(initializeValue);
+    moveMouseForY(initializeValue);
+    delay(100);
     moveMouseForX(x);
     moveMouseForY(y);
 }

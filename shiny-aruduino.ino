@@ -2,6 +2,9 @@
 
 const int notification_led_port = 13;
 
+/// 初期化後、画面下部ボタンへの移動量
+const int bottomButtonHeight = -50;
+
 void setup()
 {
     // put your setup code here, to run once:
@@ -16,6 +19,7 @@ void setup()
 
     // 初期化完了を通知
     flashLED(notification_led_port);
+    delay(100);
     flashLED(notification_led_port);
 
     randomSeed(analogRead(0));
@@ -34,6 +38,7 @@ void loop()
         {
             // MV再生処理完了
             flashLED(notification_led_port);
+            delay(100);
             flashLED(notification_led_port);
 
             // ここでマウスを動かす
@@ -62,13 +67,9 @@ void flashLED(int port)
 
 void moveMouseForStartingMv()
 {
-    // カーソル位置初期化
-    mousePositionInitialize();
-    mvButtonHeightInitialize();
-
     // ランダムボタン押下
     int randNumber = random(1, 10); // 10から9の乱数を生成
-    moveMouse(-800, 0);
+    moveMouse(-800, bottomButtonHeight);
 
     for (int i = 0; i < randNumber; i++)
     {
@@ -77,12 +78,12 @@ void moveMouseForStartingMv()
     }
 
     // MV再生ボタン押下
-    moveMouse(500, 0);
+    moveMouse(-300, bottomButtonHeight);
     Mouse.click();
     delay(2 * 1000);
 
     // スタートボタン押下
-    moveMouse(200, 0);
+    moveMouse(-100, bottomButtonHeight);
     Mouse.click();
     delay(1 * 1000);
 
