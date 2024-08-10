@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:leonardo",
+    "programmer": "avrisp",
+    "sketch": "shiny-aruduino.ino",
+    "port": "COM6"
+}
