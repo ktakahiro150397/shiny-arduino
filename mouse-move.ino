@@ -99,3 +99,50 @@ void mvButtonHeightInitialize()
 {
     moveMouse(0, -50);
 }
+
+/// @brief ユニット確認画面で、アイドルをランダムのおまかせ編成にする
+void setRandomIdolOnUnitConfirm()
+{
+    // おまかせ編成ボタン
+    moveMouse(-800, -580);
+    Mouse.click();
+    delay(0.3 * 1000);
+
+    // 決定ボタン
+    moveMouse(-450, -200);
+    Mouse.click();
+    delay(0.3 * 1000);
+}
+
+/// @brief 指定したインデックスのアイドルの衣装をお気に入り1に設定する
+/// @param index
+void setIdolCostume(int index)
+{
+    const int startPos = -1100;
+    const int height = -230;
+    const int diff = -220;
+
+    // 衣装変更ボタン
+    moveMouse(startPos - diff * index, height);
+    Mouse.click();
+    delay(0.5 * 1000);
+
+    // お気に入りボタン
+    moveMouse(-100, -700);
+    Mouse.click();
+    delay(1.2 * 1000);
+
+    // 座標重なっているのでそのまま「適用」をクリック
+    Mouse.click();
+    delay(0.8 * 1000);
+
+    // 閉じるボタン
+    moveMouse(-300, bottomButtonHeight);
+    Mouse.click();
+    delay(0.3 * 1000);
+
+    // 決定ボタン押下
+    moveMouse(-100, bottomButtonHeight);
+    Mouse.click();
+    delay(1.5 * 1000);
+}

@@ -80,7 +80,16 @@ void moveMouseForStartingMv()
     // MV再生ボタン押下
     moveMouse(-300, bottomButtonHeight);
     Mouse.click();
-    delay(2 * 1000);
+    delay(1.5 * 1000);
+
+    // ユニットランダム設定
+    setRandomIdolOnUnitConfirm();
+
+    setIdolCostume(0);
+    setIdolCostume(1);
+    setIdolCostume(2);
+    setIdolCostume(3);
+    setIdolCostume(4);
 
     // スタートボタン押下
     moveMouse(-100, bottomButtonHeight);
