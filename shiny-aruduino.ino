@@ -94,7 +94,12 @@ void moveMouseForStartingMv()
     // スタートボタン押下
     moveMouse(-100, bottomButtonHeight);
     Mouse.click();
-    delay(1 * 1000);
+    delay(0.25 * 1000);
+
+    // サマーサマーオーシャンパーリィバ...対策に画面中央をクリック
+    moveMouse(-600, -450);
+    Mouse.click();
+    delay(0.25 * 1000);
 
     // マウスを元の位置に戻す
     mousePositionInitialize();

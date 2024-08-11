@@ -4,6 +4,9 @@ const int monitorHeight = 2160;
 
 const int initializeValue = 9999;
 
+/// @brief 指定した量だけマウスを移動する(初期化後は右下から移動するため負の値を指定する)
+/// @param x 横方向の移動量
+/// @param y 縦方向の移動量
 void moveMouse(int x, int y)
 {
     moveMouseForX(initializeValue);
@@ -89,15 +92,10 @@ void moveMouseForY(int y)
     }
 }
 
-/// @brief 現在のマウスの位置をモニターの左上に移動する
+/// @brief 現在のマウスの位置をモニターの右下に移動して初期化
 void mousePositionInitialize()
 {
     moveMouse(initializeValue, initializeValue);
-}
-
-void mvButtonHeightInitialize()
-{
-    moveMouse(0, -50);
 }
 
 /// @brief ユニット確認画面で、アイドルをランダムのおまかせ編成にする
@@ -130,11 +128,11 @@ void setIdolCostume(int index)
     // お気に入りボタン
     moveMouse(-100, -700);
     Mouse.click();
-    delay(1.2 * 1000);
+    delay(0.7 * 1000);
 
     // 座標重なっているのでそのまま「適用」をクリック
     Mouse.click();
-    delay(0.8 * 1000);
+    delay(0.7 * 1000);
 
     // 閉じるボタン
     moveMouse(-300, bottomButtonHeight);
@@ -144,5 +142,5 @@ void setIdolCostume(int index)
     // 決定ボタン押下
     moveMouse(-100, bottomButtonHeight);
     Mouse.click();
-    delay(1.5 * 1000);
+    delay(0.8 * 1000);
 }
